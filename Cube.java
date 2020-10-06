@@ -30,6 +30,7 @@ public class Cube
     this.org[1] += b;
     System.out.println("System of cube is displaced by this amount "+dist);
   }
+  
   public static void main(Strings[] args)
   {
     Scanner jk = new Scanner(System.in);
