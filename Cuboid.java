@@ -26,6 +26,4 @@ public class Cuboid
     System.out.print("Input Height of Cuboid ");
     int h = jk.nextInt();
     System.out.println();
-  }
-
 }
