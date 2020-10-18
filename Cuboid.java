@@ -4,6 +4,16 @@ public class Cuboid
   int l;
   int b;
   int h;
+  public Cuboid(int l, int b, int h)
+  {
+    this.l = l;
+    this.b = b;
+    this.h = h;
+  }
+  public int void surfaceArea()
+  {
+    return 2*(this.l*this.b + this.l*this.h + this.b*this.h);
+  }
   public static void main(Strings[] args)
   {
     Scanner jk = new Scanner(System.in);
@@ -16,9 +26,4 @@ public class Cuboid
     System.out.print("Input Height of Cuboid ");
     int h = jk.nextInt();
     System.out.println();
-  public static void main(Strings[] args)
-  {
-    
-  }
-
 }
