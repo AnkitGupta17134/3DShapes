@@ -14,6 +14,10 @@ public class Cuboid
   {
     return 2*(this.l*this.b + this.l*this.h + this.b*this.h);
   }
+  public int volume()
+  {
+    return this.l*this.b*this.h;
+  }
   public static void main(Strings[] args)
   {
     Scanner jk = new Scanner(System.in);
@@ -26,4 +30,10 @@ public class Cuboid
     System.out.print("Input Height of Cuboid ");
     int h = jk.nextInt();
     System.out.println();
+    // Printing Surface Area and Volume
+    Cuboid cuba = new Cuboid(2,3,4);
+    System.out.println(cuba.surfaceArea());
+    System.out.println(cuba.volume());
+  }
+
 }
