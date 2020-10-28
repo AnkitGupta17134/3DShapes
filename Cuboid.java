@@ -22,6 +22,11 @@ class Cuboid
   {
     return this.l*this.b*this.h;
   }
+  public static moveXY(int x, int y)
+  {
+    this.x0 += x;
+    this.y0 += y;
+  }
   public static void main(Strings[] args)
   {
     Scanner jk = new Scanner(System.in);
