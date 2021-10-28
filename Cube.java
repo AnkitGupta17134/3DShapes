@@ -22,6 +22,18 @@ public class Cube
     {
       System.out.println("Red");
     }
+    else if (this.sides[1]==2)
+    {
+      System.out.println("Blue");
+    }
+    else if (this.sides[1]==3)
+    {
+      System.out.println("Green");
+    }
+    else
+    {
+      System.out.println("Rainbow");
+    }
   }
   public void sArea()
   {
