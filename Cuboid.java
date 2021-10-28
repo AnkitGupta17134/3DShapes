@@ -10,9 +10,17 @@ public class Cuboid
     this.b = b;
     this.h = h;
   }
-  public int void surfaceArea()
+  public int surfaceArea()
   {
     return 2*(this.l*this.b + this.l*this.h + this.b*this.h);
+  }
+  public boolean isCuboid()
+  {
+    if (this.l != this.b != this.h)
+    {
+      return true
+    }
+    return false
   }
   public int volume()
   {
