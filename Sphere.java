@@ -1,3 +1,6 @@
+import Math;
+import java.util.*;
+
 class Sphere
 {
   long r;
@@ -5,6 +8,14 @@ class Sphere
   {
    this.r = r; 
   }
+	public boolean isSphere()
+	{
+		if (this.r>0)
+		{
+			return true;
+		}
+		return false;
+	}
   public long Area()
   {
     return 4*Math.pi*r*r;
@@ -13,7 +24,7 @@ class Sphere
   {
     return (4/3)*Math.pi*r*r*r;
   }
-    public long Diameter()
+  public long Diameter()
   {
     return 2*r;
   }
@@ -23,29 +34,4 @@ class Sphere
     System.out.println((int) Math.sqrt(rt));
     return Math.sqrt(rt);
   }
-}
-
-class Cube
-{
-	long l;
-	public Cube(long l)
-	{
-		this.l=l
-	}
-	public long area(long l)
-	{
-		// surface area
-		return 6*l*l;
-	}
-
-	public long volume(long l)
-	{
-		// volume
-		return l*l*l;
-	}
-
-	public long diagonal(long l)
-	{
-		return Math.sqrt(3*l*l);
-	}
 }
