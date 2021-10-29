@@ -10,7 +10,7 @@ public class Cylinder
   this.r = r;
   this.l = l;
  }
- public int surfaceArea()
+ public static int surfaceArea()
  {
   if (r==0)
   {
@@ -27,6 +27,14 @@ public class Cylinder
    return 2*Math.pi*r*l;
   }
  }
+ public static int volume()
+ {
+  return 2*Math.pi*r*l;
+ }
+ public static int totalSA()
+ {
+  return 2*Math.pi*r*l + 2 * Math.pi*r*r;
+ }
  public static void main(Strings[] args)
  {
    Scanner jk = new Scanner(System.in);
@@ -35,6 +43,9 @@ public class Cylinder
    System.out.print("Enter Length of Cylinder");
    int l = jk.nextInt();
    Cylinder cyc = new Cylinder(r,l);
+   System.out.println("Surface Area "+cyc.surfaceArea());
+   System.out.println("Total Surface Area "+cyc.totalSA());
+   System.out.println("Volume of Cylinder "+cyc.volume());
  }
 }
 
