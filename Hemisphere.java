@@ -11,6 +11,10 @@ class Hemisphere
  {
   return 2*Math.pi*r*r;
  }
+ public static int tsA()
+ {
+  return 3*Math.pi*r*r;
+ }
  public static void main(Strings[] args)
  {
   Scanner jk = new Scanner(System.in);
