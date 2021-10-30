@@ -35,6 +35,21 @@ public class Cylinder
  {
   return 2*Math.pi*r*l + 2 * Math.pi*r*r;
  }
+ public staic int flatOrNot()
+ {
+  if (this.r>this.l)
+  {
+   System.out.println("Cylinder is lying flat");
+  }
+  else if (this.r==this.l)
+  {
+   System.out.println("This ain't a cylinder");
+  }
+  else
+  {
+   System.out.print("Cylinder is standing");
+  }
+ }
  public static void main(Strings[] args)
  {
    Scanner jk = new Scanner(System.in);
