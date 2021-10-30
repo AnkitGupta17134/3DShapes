@@ -16,17 +16,19 @@ public class Cuboid
   }
   public boolean isCuboid()
   {
-    if (this.l != this.b != this.h)
+    if (this.l != this.b && this.l != this.h && this.b != this.h)
     {
-      return true
+      return true;
     }
-    return false
+    else{
+    return false;
+    }
   }
   public int volume()
   {
     return this.l*this.b*this.h;
   }
-  public static void main(Strings[] args)
+public static void main(String[] args)
   {
     Scanner jk = new Scanner(System.in);
     System.out.print("Input Length of Cuboid ");
@@ -40,8 +42,8 @@ public class Cuboid
     System.out.println();
     // Printing Surface Area and Volume
     Cuboid cuba = new Cuboid(2,3,4);
-    System.out.println(cuba.surfaceArea());
-    System.out.println(cuba.volume());
+    System.out.println("Surface Area="+cuba.surfaceArea());
+    System.out.println("Volume="+cuba.volume());
   }
 
 }
