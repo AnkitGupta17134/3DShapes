@@ -16,6 +16,11 @@ class Sphere
 		}
 		return false;
 	}
+	public void eqnSphere()
+	{
+		String ans = "x^2 + y^2 + z^2 = r^2";
+		System.out.println(ans);
+	}
   public long Area()
   {
     return 4*Math.pi*r*r;
