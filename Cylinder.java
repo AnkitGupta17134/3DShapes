@@ -59,6 +59,8 @@ public class Cylinder
    System.out.print("Enter Length of Cylinder");
    int l = jk.nextInt();
    Cylinder cyc = new Cylinder(r,l);
+   System.out.println("Enter color of Cylinder");
+   String color = jk.nextLine();
    System.out.println("Surface Area "+cyc.surfaceArea());
    System.out.println("Total Surface Area "+cyc.totalSA());
    System.out.println("Volume of Cylinder "+cyc.volume());
