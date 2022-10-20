@@ -37,6 +37,13 @@ public class Cube
       System.out.println("Rainbow");
     }
   }
+  public void colorBlue()
+  {
+    if (this.sides[0]=="Blue")
+    {
+      System.out.println("Cube has blue top")
+    }
+  }
   public void sArea()
   {
     long sd = this.a * this.a;
@@ -59,6 +66,8 @@ public class Cube
     Scanner jk = new Scanner(System.in);
     System.out.println("Enter Size of side of Cube");
     int a = jk.nextInt();
+    System.out.println("Enter which side will have Blue color");
+    int colorB = jk.nextInt();
     # System always at origin intially.
   }
 
