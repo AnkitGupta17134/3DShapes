@@ -6,10 +6,20 @@ public class Cylinder
  
  int r;
  int l;
- public Cylinder(int r, int l)
+ String sideC;
+ public Cylinder(int r, int l, String sideC)
  {
   this.r = r;
   this.l = l;
+  this.sideC = sideC;
+ }
+ public void setColour(String color)
+ {
+  this.sideC = color;
+ }
+ public String getColor(String color)
+ {
+  return this.sideC;
  }
  public static int surfaceArea()
  {
