@@ -60,7 +60,51 @@ public class Cube
     this.org[1] += b;
     System.out.println("System of cube is displaced by this amount "+dist);
   }
-  
+    public enum CubeColor {
+        RED,
+        GREEN,
+        BLUE,
+        YELLOW,
+        WHITE,
+        ORANGE
+    }
+    /**
+     * Selects and returns a random color from the CubeColor enum.
+     * This is useful when you want to assign a random color to a cube.
+     *
+     * @return A random CubeColor value.
+     */
+    public CubeColor selectRandomColor() {
+        // Get all possible values from the CubeColor enum.
+        CubeColor[] colors = CubeColor.values();
+
+        // Create a random number generator.
+        Random random = new Random();
+
+        // Pick a random index from the array of colors.
+        int randomIndex = random.nextInt(colors.length);
+
+        // Return the color at the randomly selected index.
+        return colors[randomIndex];
+    }
+
+    /**
+     * Selects a color by its string name (case-insensitive).
+     * If the provided color name is not valid, it prints an error and returns a default color (WHITE).
+     *
+     * @param colorName The name of the color to select (e.g., "RED", "blue").
+     * @return The corresponding CubeColor enum value, or CubeColor.WHITE if the name is invalid.
+     */
+    public CubeColor selectColorByName(String colorName) {
+        try {
+            // valueOf() is case-sensitive, so we convert the input string to uppercase first.
+            return CubeColor.valueOf(colorName.toUpperCase());
+        } catch (IllegalArgumentException e) {
+            // This block executes if the colorName does not match any of the enum constants.
+            System.err.println("Error: Invalid color name '" + colorName + "'. Defaulting to WHITE.");
+            return CubeColor.WHITE;
+        }
+    }  
   public static void main(Strings[] args)
   {
     Scanner jk = new Scanner(System.in);
