@@ -21,46 +21,27 @@ public class Cylinder
  {
   return this.sideC;
  }
- public static int surfaceArea()
- {
-  if (r==0)
-  {
-   System.out.println("Its a stick");
-   return 0;
-  }
-  else if (l==0)
-  {
-   System.out.println("Its a button");
-   return 0;
-  }
-  else
-  {
-   return 2*Math.pi*r*l;
-  }
- }
- public static int volume()
- {
-  return 2*Math.pi*r*l;
- }
- public static int totalSA()
- {
-  return 2*Math.pi*r*l + 2 * Math.pi*r*r;
- }
- public staic int flatOrNot()
- {
-  if (this.r>this.l)
-  {
-   System.out.println("Cylinder is lying flat");
-  }
-  else if (this.r==this.l)
-  {
-   System.out.println("This ain't a cylinder");
-  }
-  else
-  {
-   System.out.print("Cylinder is standing");
-  }
- }
+public double getVolume() {
+    return Math.PI * radius * radius * height;
+}
+
+public double getLateralSurfaceArea() {
+    return 2 * Math.PI * radius * height;
+}
+
+public double getTotalSurfaceArea() {
+    return getLateralSurfaceArea() + (2 * getTopBottomArea());
+}
+public void printOrientation() {
+    double diameter = 2 * this.radius;
+    if (this.height > diameter) {
+        System.out.println("Orientation: Cylinder is standing upright.");
+    } else if (diameter > this.height) {
+        System.out.println("Orientation: Cylinder is lying flat.");
+    } else {
+        System.out.println("Orientation: Cylinder height is equal to its diameter.");
+    }
+}
  public static void main(Strings[] args)
  {
    Scanner jk = new Scanner(System.in);
