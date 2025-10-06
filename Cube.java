@@ -5,13 +5,18 @@ public class Cube
 {
   int a;
   int[] org;
-  int[] sides;
-  public Cube(int a)
-  {
-    this.a = a;
-    this.org = new int[2];
-    this.sides = new int[6];
-  }
+// MODIFIED: Use the CubeColor enum for type safety and clarity instead of int[].
+  CubeColor[] sides;
+
+  public Cube(int a)
+  {
+    this.a = a;
+    this.org = new int[2];
+    // MODIFIED: Initialize the array to hold CubeColor objects.
+    this.sides = new CubeColor[6];
+    // ADDED: Set a default color for all sides on creation.
+    java.util.Arrays.fill(this.sides, CubeColor.WHITE);
+  }
   public void tArea()
   {
     long sd = this.a * this.a;
@@ -60,6 +65,51 @@ public class Cube
     this.org[1] += b;
     System.out.println("System of cube is displaced by this amount "+dist);
   }
+// --- CODE TO BE ADDED ---
+
+  /**
+   * Constants to make side selection easier and more readable.
+   * 0: Top face
+   * 1: Bottom face
+   * 2: Front face
+   * 3: Back face
+   * 4: Left face
+   * 5: Right face
+   */
+  public static final int TOP_FACE = 0;
+  public static final int BOTTOM_FACE = 1;
+  public static final int FRONT_FACE = 2;
+  public static final int BACK_FACE = 3;
+  public static final int LEFT_FACE = 4;
+  public static final int RIGHT_FACE = 5;
+
+  /**
+   * Sets the color of a single specified side of the cube using the CubeColor enum.
+   *
+   * @param sideIndex The index of the side to color (e.g., Cube.TOP_FACE).
+   * @param color The CubeColor to apply to the side.
+   */
+  public void setSideColor(int sideIndex, CubeColor color) {
+    if (sideIndex >= 0 && sideIndex < this.sides.length) {
+      this.sides[sideIndex] = color;
+      System.out.println("Successfully set side " + sideIndex + " to " + color);
+    } else {
+      System.err.println("Error: Invalid side index '" + sideIndex + "'. Must be between 0 and 5.");
+    }
+  }
+
+  /**
+   * Sets the color of a single specified side of the cube using a string name.
+   * This is a convenient helper method that uses your existing selectColorByName function.
+   *
+   * @param sideIndex The index of the side to color (e.g., Cube.FRONT_FACE).
+   * @param colorName The name of the color (e.g., "BLUE", "red").
+   */
+  public void setSideColorByName(int sideIndex, String colorName) {
+    CubeColor colorToSet = selectColorByName(colorName);
+    setSideColor(sideIndex, colorToSet);
+  }
+  
     public enum CubeColor {
         RED,
         GREEN,
