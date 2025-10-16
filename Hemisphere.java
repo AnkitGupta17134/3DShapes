@@ -21,6 +21,47 @@ class Hemisphere
   return 3*Math.pi*r*r;
  }
 
+    // --- Rotation Functions ---
+
+    /**
+     * Rotates the hemisphere by a given number of degrees around each axis.
+     * The rotation is added to its current orientation.
+     *
+     * @param degreesX Degrees to rotate around the X-axis.
+     * @param degreesY Degrees to rotate around the Y-axis.
+     * @param degreesZ Degrees to rotate around the Z-axis.
+     */
+    public void rotate(double degreesX, double degreesY, double degreesZ) {
+        this.rotationX = (this.rotationX + degreesX) % 360;
+        this.rotationY = (this.rotationY + degreesY) % 360;
+        this.rotationZ = (this.rotationZ + degreesZ) % 360;
+        System.out.println("\n--- Rotated Hemisphere ---");
+        System.out.println("New Orientation: " + getRotationString());
+    }
+    
+    /**
+     * Sets the absolute rotation of the hemisphere to the specified degrees.
+     *
+     * @param degreesX The absolute rotation angle for the X-axis.
+     * @param degreesY The absolute rotation angle for the Y-axis.
+     * @param degreesZ The absolute rotation angle for the Z-axis.
+     */
+    public void setRotation(double degreesX, double degreesY, double degreesZ) {
+        this.rotationX = degreesX % 360;
+        this.rotationY = degreesY % 360;
+        this.rotationZ = degreesZ % 360;
+        System.out.println("\n--- Set Hemisphere Rotation ---");
+        System.out.println("New Orientation: " + getRotationString());
+    }
+    
+    /**
+     * Helper method to get the current rotation as a formatted string.
+     * @return A string representing the rotation (e.g., "[X: 90.0°, Y: 45.0°, Z: 0.0°]").
+     */
+    public String getRotationString() {
+        return String.format("[X: %.1f°, Y: %.1f°, Z: %.1f°]", rotationX, rotationY, rotationZ);
+    } 
+ 
 // --- Color Management Functions ---
 public void setColor(int surfaceIndex, java.awt.Color color) {
     if (surfaceIndex >= 0 && surfaceIndex < colors.length) {
