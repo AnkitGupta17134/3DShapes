@@ -1,13 +1,16 @@
-import Math;
-import java.util.*;
+import java.awt.Color;
+import java.util.Scanner;
 
-class Sphere
-{
-  long r;
-  public Sphere(long r)
-  {
-   this.r = r; 
-  }
+public class Sphere {
+    // --- Fields ---
+    private double radius;
+    private Color[] colors = new Color[2]; // [0] for top, [1] for bottom
+
+    // --- Constructor ---
+    public Sphere(double radius) {
+        this.radius = Math.abs(radius); // Use double for precision
+        setSingleColor(Color.GRAY); // Set a default uniform color
+    }
 	public boolean isSphere()
 	{
 		if (this.r>0)
@@ -21,22 +24,16 @@ class Sphere
 		String ans = "x^2 + y^2 + z^2 = r^2";
 		System.out.println(ans);
 	}
-  public long Area()
-  {
-    return 4*Math.pi*r*r;
-  }
-  public long Volume()
-  {
-    return (4/3)*Math.pi*r*r*r;
-  }
-  public long Diameter()
-  {
-    return 2*r;
-  }
-  public long Radius()
-  {
-    long rt = r*r;
-    System.out.println((int) Math.sqrt(rt));
-    return Math.sqrt(rt);
-  }
+public double getArea() {
+    return 4 * Math.PI * radius * radius;
+}
+
+public double getVolume() {
+    // Use 4.0/3.0 to avoid integer division which would result in 1
+    return (4.0 / 3.0) * Math.PI * radius * radius * radius;
+}
+
+public double getDiameter() {
+    return 2 * radius;
+}
 }
