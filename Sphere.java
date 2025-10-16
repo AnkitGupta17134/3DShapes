@@ -36,4 +36,51 @@ public double getVolume() {
 public double getDiameter() {
     return 2 * radius;
 }
+    // --- Color Management Functions ---
+
+    /**
+     * Sets the entire sphere to a single, uniform color.
+     * @param color The color to apply.
+     */
+    public void setSingleColor(Color color) {
+        if (color == null) {
+            color = Color.BLACK; // Avoid nulls
+        }
+        this.colors[0] = color;
+        this.colors[1] = color;
+    }
+
+    /**
+     * Sets different colors for the top and bottom hemispheres of the sphere.
+     * @param topHemisphereColor The color for the top half.
+     * @param bottomHemisphereColor The color for the bottom half.
+     */
+    public void setTwoColors(Color topHemisphereColor, Color bottomHemisphereColor) {
+        this.colors[0] = topHemisphereColor != null ? topHemisphereColor : Color.BLACK;
+        this.colors[1] = bottomHemisphereColor != null ? bottomHemisphereColor : Color.BLACK;
+    }
+
+    // --- Utility Method ---
+
+    /**
+     * Provides a string representation of the Sphere object.
+     * @return A descriptive string of the sphere's state.
+     */
+    @Override
+    public String toString() {
+        String colorInfo;
+        if (colors[0].equals(colors[1])) {
+            colorInfo = "\n  Color: " + colors[0];
+        } else {
+            colorInfo = "\n  Colors: {" +
+                        "\n    Top Hemisphere: " + colors[0] +
+                        "\n    Bottom Hemisphere: " + colors[1] +
+                        "\n  }";
+        }
+        return "Sphere {" +
+               "\n  Radius: " + String.format("%.2f", radius) +
+               colorInfo +
+               "\n}";
+    }
+	
 }
