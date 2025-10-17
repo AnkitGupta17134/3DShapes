@@ -77,6 +77,58 @@ public class Cuboid
     this.h = h;
     this.color = "White";
   }
+      /**
+     * An enumeration to define the axis for the flip operation.
+     */
+    public enum FlipAxis {
+        /** Flips the cuboid upside down (swaps top and bottom). */
+        VERTICAL,
+        /** Flips the cuboid front to back. */
+        HORIZONTAL_DEPTH,
+        /** Flips the cuboid left to right. */
+        HORIZONTAL_WIDTH
+    }
+
+    /**
+     * Flips the cuboid along a specified axis by swapping the colors of the opposite faces.
+     *
+     * @param axis The axis to flip along (e.g., FlipAxis.VERTICAL).
+     */
+    public void flip(FlipAxis axis) {
+        System.out.println("\n--- Flipping cuboid along " + axis + " axis ---");
+        Color temp;
+        switch (axis) {
+            case VERTICAL: // Swap top and bottom
+                temp = sideColors[TOP_FACE];
+                sideColors[TOP_FACE] = sideColors[BOTTOM_FACE];
+                sideColors[BOTTOM_FACE] = temp;
+                break;
+            case HORIZONTAL_DEPTH: // Swap front and back
+                temp = sideColors[FRONT_FACE];
+                sideColors[FRONT_FACE] = sideColors[BACK_FACE];
+                sideColors[BACK_FACE] = temp;
+                break;
+            case HORIZONTAL_WIDTH: // Swap left and right
+                temp = sideColors[LEFT_FACE];
+                sideColors[LEFT_FACE] = sideColors[RIGHT_FACE];
+                sideColors[RIGHT_FACE] = temp;
+                break;
+        }
+    }
+
+    /**
+     * Rotates the cuboid by a given number of degrees around each axis.
+     *
+     * @param degreesX Degrees to rotate around the X-axis.
+     * @param degreesY Degrees to rotate around the Y-axis.
+     * @param degreesZ Degrees to rotate around the Z-axis.
+     */
+    public void rotate(double degreesX, double degreesY, double degreesZ) {
+        this.rotationX = (this.rotationX + degreesX) % 360;
+        this.rotationY = (this.rotationY + degreesY) % 360;
+        this.rotationZ = (this.rotationZ + degreesZ) % 360;
+        System.out.println("\n--- Rotating cuboid ---");
+    }
   public int surfaceArea()
   {
     return 2*(this.l*this.b + this.l*this.h + this.b*this.h);
