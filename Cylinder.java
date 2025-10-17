@@ -28,6 +28,22 @@ public void setAllColors(Color color) {
     Arrays.fill(this.colors, color);
 }
 
+    /**
+     * Flips the cylinder upside down by swapping the colors of the top and bottom faces.
+     */
+    public void flipUpsideDown() {
+        // Use a temporary variable to hold the top color
+        Color tempTopColor = this.colors[TOP_FACE];
+        
+        // Set the top color to the bottom color
+        this.colors[TOP_FACE] = this.colors[BOTTOM_FACE];
+        
+        // Set the bottom color to the original top color
+        this.colors[BOTTOM_FACE] = tempTopColor;
+        
+        System.out.println("\n--- Cylinder has been flipped upside down! ---");
+    } 
+ 
 public Color getColor(int surfaceIndex) {
     if (surfaceIndex >= 0 && surfaceIndex < colors.length) {
         return colors[surfaceIndex];
