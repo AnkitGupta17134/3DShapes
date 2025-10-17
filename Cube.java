@@ -65,6 +65,46 @@ public class Cube
     this.org[1] += b;
     System.out.println("System of cube is displaced by this amount "+dist);
   }
+    // --- New Flip and Rotate Functions ---
+
+    /**
+     * Flips the cube along a specified axis by swapping the colors of the opposite faces.
+     * @param axis The axis to flip along (e.g., FlipAxis.VERTICAL).
+     */
+    public void flip(FlipAxis axis) {
+        System.out.println("\n--- Flipping cube along " + axis + " axis ---");
+        CubeColor temp;
+        switch (axis) {
+            case VERTICAL: // Swap top and bottom
+                temp = sides[TOP_FACE];
+                sides[TOP_FACE] = sides[BOTTOM_FACE];
+                sides[BOTTOM_FACE] = temp;
+                break;
+            case HORIZONTAL_DEPTH: // Swap front and back
+                temp = sides[FRONT_FACE];
+                sides[FRONT_FACE] = sides[BACK_FACE];
+                sides[BACK_FACE] = temp;
+                break;
+            case HORIZONTAL_WIDTH: // Swap left and right
+                temp = sides[LEFT_FACE];
+                sides[LEFT_FACE] = sides[RIGHT_FACE];
+                sides[RIGHT_FACE] = temp;
+                break;
+        }
+    }
+
+    /**
+     * Rotates the cube by a given number of degrees around each axis.
+     * @param degreesX Degrees to rotate around the X-axis.
+     * @param degreesY Degrees to rotate around the Y-axis.
+     * @param degreesZ Degrees to rotate around the Z-axis.
+     */
+    public void rotate(double degreesX, double degreesY, double degreesZ) {
+        this.rotationX = (this.rotationX + degreesX) % 360;
+        this.rotationY = (this.rotationY + degreesY) % 360;
+        this.rotationZ = (this.rotationZ + degreesZ) % 360;
+        System.out.println("\n--- Rotating cube ---");
+    }  
 // --- CODE TO BE ADDED ---
 
   /**
